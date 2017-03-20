@@ -4,17 +4,18 @@ var bodyParser = require('body-parser');
 var consolidate = require('consolidate');
 var dust = require('dustjs-helpers');
 var pg = require('pg');
-//var connection = "postgres://MyRiceBowl@localhost:5432/people";
+var connection = "postgres://MyRiceBowl@localhost:5432/people";
 var app = express();
 
-var config = {
-  user: 'MyRiceBowl', //env var: PGUSER
-  database: 'people', //env var: PGDATABASE
-  host: 'localhost', // Server hosting the postgres database
-  port: 5432, //env var: PGPORT
-};
+// var config = {
+//   user: 'MyRiceBowl', //env var: PGUSER
+//   database: 'people', //env var: PGDATABASE
+//   host: 'localhost', // Server hosting the postgres database
+//   port: 5432, //env var: PGPORT
+// };
 
-var pool = new pg.Pool(config);
+//var pool = new pg.Pool(config);
+var env = process.env.DATABASE_URL || connection;
 
 const port = process.env.PORT || 3000;
 
@@ -31,7 +32,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 //GET the table
 app.get('/', function(req, res){
 
-  pool.connect(function(err, client, done) {
+  pg.connect(env, function(err, client, done) {
   if(err) {
     return console.error('error fetching client from pool', err);
   }
@@ -51,7 +52,7 @@ app.post('/add', function(req, res){
   var name = req.body.name;
   var city = req.body.favoritecity;
 
-  pool.connect(function(err, client, done) {
+  pg.connect(env, function(err, client, done) {
   if(err) {
     return console.error('error fetching client from pool', err);
   }
@@ -67,7 +68,7 @@ app.post('/add', function(req, res){
 //DElETE row
 app.delete('/delete/:id', function(req, res){
 
-  pool.connect(function(err, client, done) {
+  pg.connect(env, function(err, client, done) {
   if(err) {
     return console.error('error fetching client from pool', err);
   }
@@ -89,7 +90,7 @@ app.post('/edit', function(req, res){
   // var city = req.body.favoriteCity;
   // var id = parseInt(req.params.id);
 
-  pool.connect(function(err, client, done) {
+  pg.connect(env, function(err, client, done) {
 
   if(err) {
     return console.error('error fetching client from pool', err);
