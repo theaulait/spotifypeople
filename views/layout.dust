@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>List of People</title>
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>List of People</title>
 </head>
 <body>
 

@@ -80,17 +80,21 @@ app.delete('/delete/:id', function(req, res){
     });
 });
 
+//POST/PUT rows
 app.post('/edit', function(req, res){
+  console.log(req.body)
+  var id = parseInt(req.body.id);
 
-  var name = req.body.name;
-  var city = req.body.favoriteCity;
-  var id = req.body.id;
+  // var name = req.body.name;
+  // var city = req.body.favoriteCity;
+  // var id = parseInt(req.params.id);
 
   pool.connect(function(err, client, done) {
+
   if(err) {
     return console.error('error fetching client from pool', err);
   }
-  client.query('UPDATE person SET name=$1, favoritecity=$2 WHERE id=$4',[name, city, id]);
+  client.query('UPDATE person SET name=$1, favoritecity=$2 WHERE id = $3',[id, req.body.name, req.body.favoriteCity]);
     done(err);
     if(err) {
       return console.error('error running query', err);

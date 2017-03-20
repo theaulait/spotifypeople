@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+  // $('.edit-person').click(function(){
+  //     $('#edit-form-name').val($(this).data.('name'));
+  //     $('#edit-form-favoritecity').val($(this).data.('favoritecity'));
+  //     $('#edit-form-id').val($(this).data('id'));
+  // });
+
   $('.delete-person').on('click', function(){
     var id = $(this).data('id');
     var url = '/delete/'+id;
@@ -12,14 +18,9 @@ $(document).ready(function(){
         },
         error: function(err){
           console.log(err);
-        }
+          }
       });
     }
   });
-
-$('.edit-person').on('click', function(){
-      $('#edit-form-name').val($(this).data.('name'));
-      $('#edit-form-favoritecity').val($(this).data.('favoritecity'));
-  })
 
 });

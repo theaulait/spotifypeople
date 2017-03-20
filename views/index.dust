@@ -12,16 +12,25 @@ Add Person
   {#people}
     <div class="well">
       <h5> Name: {name}<h5>
-      <h5>Favorite City: {favoritecity} </h5>
       <br>
-
-    <!--edit-->
-      <button class="btn btn-default edit-person"
+      <button type="button" class="btn btn-default pull-right"
+       data-toggle="collapse" href="#person_{id}"
+       aria-expanded="false"
+       aria-controls="person_{id}">
+         <span class="glyphicon glyphicon-triangle-bottom"
+          aria-hidden="true"></span>
+       </button>
+       <div class="collapse" id="person_{id}">
+         <h5>Favorite City: {favoritecity} </h5>
+         <br>
+         <!--edit-->
+      <button type="button" class="btn btn-default edit-person"
           data-target="#editFormModal"
           data-toggle="modal"
-          data-id="{id}"
+          href="#person_{id}"
           data-name="{name}"
-          data-favoritecity="{favoritecity}">
+          data-favoritecity="{favoritecity}"
+          data-id="{id}">
 
           <span class="glyphicon glyphicon-edit"
           aria-hidden="true"></span>
@@ -29,10 +38,34 @@ Add Person
       </button>
 
     <!--delete-->
-      <button class="btn btn-danger delete-person" data-id="{id}">
+      <button type="button " class="btn btn-danger delete-person" data-id="{id}">
           <span class="glyphicon glyphicon-remove"
           aria-hidden="true"></span>
       </button>
+
+       </div>
+
+      <br>
+
+    <!--edit-->
+  <!--     <button type="button" class="btn btn-default edit-person"
+          data-target="#editFormModal"
+          data-toggle="modal"
+          href="#person_{id}"
+          data-name="{name}"
+          data-favoritecity="{favoritecity}"
+          data-id="{id}">
+
+          <span class="glyphicon glyphicon-edit"
+          aria-hidden="true"></span>
+
+      </button> -->
+
+    <!--delete-->
+<!--       <button type="button " class="btn btn-danger pull-right delete-person" data-id="{id}">
+          <span class="glyphicon glyphicon-remove"
+          aria-hidden="true"></span>
+      </button> -->
     </div>
 
   {/people}
