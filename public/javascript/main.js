@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-  // $('.edit-person').click(function(){
-  //     $('#edit-form-name').val($(this).data.('name'));
-  //     $('#edit-form-favoritecity').val($(this).data.('favoritecity'));
-  //     $('#edit-form-id').val($(this).data('id'));
-  // });
+  $('.edit-person').on('click', function(){
+      $('#edit-form-name').val($(this).data('name'));
+      $('#edit-form-favoritecity').val($(this).data('favoritecity'));
+      $('#edit-form-id').val($(this).data('id'));
+  });
 
   $('.delete-person').on('click', function(){
     var id = $(this).data('id');
