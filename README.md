@@ -1,4 +1,4 @@
-# spotify People
+# Spotify People
 
 Simple application where you can list people and there favorite.
 
