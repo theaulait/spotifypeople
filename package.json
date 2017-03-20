@@ -16,6 +16,7 @@
     "dustjs-helpers": "^1.7.3",
     "dustjs-linkedin": "^2.7.5",
     "express": "^4.15.2",
+    "method-override": "^2.3.7",
     "pg": "^6.1.4",
     "pg-promise": "^5.6.4"
   }

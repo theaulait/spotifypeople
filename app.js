@@ -4,14 +4,16 @@ var bodyParser = require('body-parser');
 var consolidate = require('consolidate');
 var dust = require('dustjs-helpers');
 var pg = require('pg');
+var override = require('method-override');
 var connection = "postgres://MyRiceBowl@localhost:5432/people";
 var app = express();
 
+
 // var config = {
-//   user: 'MyRiceBowl', //env var: PGUSER
-//   database: 'people', //env var: PGDATABASE
-//   host: 'localhost', // Server hosting the postgres database
-//   port: 5432, //env var: PGPORT
+//   user: 'MyRiceBowl',
+//   database: 'people',
+//   host: 'localhost',
+//   port: 5432,
 // };
 
 //var pool = new pg.Pool(config);
@@ -28,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(override('_method'));
 
 //GET the table
 app.get('/', function(req, res){
@@ -82,7 +85,7 @@ app.delete('/delete/:id', function(req, res){
 });
 
 //POST/PUT rows
-app.post('/edit', function(req, res){
+app.put('/edit/:id', function(req, res){
   console.log(req.body)
   var id = parseInt(req.body.id);
 
