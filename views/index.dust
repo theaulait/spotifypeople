@@ -11,15 +11,16 @@ Add Person
 <!--list-->
   {#people}
     <div class="well">
-      <h5> ID: {id} </h5>
+      <h5> ID: {id} <h5>
       <h5> Name: {name}<h5>
       <h5>Favorite City: {favoritecity} </h5>
-      <br>
+         <br>
 
     <!--edit-->
       <button type="button" class="btn btn-default edit-person"
           data-target="#editFormModal"
           data-toggle="modal"
+          href="#person_{id}"
           data-id="{id}"
           data-name="{name}"
           data-favoritecity="{favoritecity}">
@@ -34,8 +35,7 @@ Add Person
           <span class="glyphicon glyphicon-remove"
           aria-hidden="true"></span>
       </button>
-    </div>
-
+  </div>
   {/people}
 
 
@@ -68,12 +68,11 @@ Add Person
 </div>
 
 <!--edit modal-->
-
 <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="editFormModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <form method="post" action="/edit">
-        <input id="edit-form-id" name="id" value = '{id}'/>
+        <input type="hidden" id="edit-form-id" name="id" />
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
             <h4 class="modal-title" id="editFormModalLabel">Update Person</h4>
@@ -81,11 +80,11 @@ Add Person
           <div class="modal-body">
             <div class="form-group">
               <label>Name: </label>
-              <input type="text" class="form-control" name="name" id="edit-form-name" value = "{name}">
+              <input type="text" class="form-control" name="name" id="edit-form-name" value="{name}">
             </div>
             <div class="form-group">
               <label>Favorite City</label>
-              <input type="text" class="form-control" name="favoritecity" id="edit-form-favoritecity" value ="{favoritecity}">
+              <input type="text" class="form-control" name="favoritecity" id="edit-form-favoritecity" value="{favoritecity}">
             </div>
           </div>
           <div class="modal-footer">
