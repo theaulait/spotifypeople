@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <script src="/javascript/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
   <script src="/javascript/bootstrap.js"></script>
   <script src="/javascript/main.js"></script>
 </body>
