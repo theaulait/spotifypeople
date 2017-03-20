@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List of People</title>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+         {+body /}
+      </div>
+    </div>
+  </div>
+  <script src="/javascript/jquery.js"></script>
+  <script src="/javascript/bootstrap.js"></script>
+  <script src="/javascript/main.js"></script>
+</body>
+</html>
